@@ -1,5 +1,5 @@
-# PC-Free Windows 10 configuration
-# Keep credentials in the ignored .env file; never commit .env.
+# PC-Free Windows 10 on a Linux host with KVM support
+# Credentials are read from the untracked .env file.
 services:
   windows:
     image: dockurr/windows
@@ -8,19 +8,19 @@ services:
       VERSION: "10"
       USERNAME: ${WINDOWS_USERNAME}
       PASSWORD: ${WINDOWS_PASSWORD}
-      RAM_SIZE: "6G"
+      RAM_SIZE: "4G"
       CPU_CORES: "2"
+    devices:
+      - /dev/kvm
+      - /dev/net/tun
     cap_add:
       - NET_ADMIN
     ports:
       - "8006:8006"
       - "3389:3389/tcp"
+      - "3389:3389/udp"
     volumes:
-      - /tmp/docker-data:/mnt/disco1
-      - windows-data:/mnt/windows-data
-    devices:
-      - "/dev/kvm:/dev/kvm"
-      - "/dev/net/tun:/dev/net/tun"
+      - windows-data:/storage
     stop_grace_period: 2m
     restart: unless-stopped
 
