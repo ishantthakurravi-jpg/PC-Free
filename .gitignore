@@ -1,0 +1,6 @@
+# Secrets and local Windows VM data
+.env
+.env.*
+!.env.example
+windows/
+*.log
