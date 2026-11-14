@@ -531,3 +531,8 @@ Made with ❤️ for developers who need Windows without owning a PC
 [⬆ Back to top](#pc-free---windows-10-in-github-codespaces--run-windows-10-free-in-browser)
 
 </div>
+
+
+## Windows 10 in Codespaces
+
+See [CODESPACES-WINDOWS.md](CODESPACES-WINDOWS.md) for the Windows 10 Docker setup, storage/KVM preflight checks, and startup instructions. The Windows VM requires a Linux host with working KVM and at least 32 GiB of free Docker storage.
